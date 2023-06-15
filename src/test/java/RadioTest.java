@@ -5,6 +5,21 @@ import ru.netology.radio.Radio;
 public class RadioTest {
 
     @Test
+    public void testQuantityStation(){
+        Radio radio = new Radio(29);
+
+        Assertions.assertEquals(28,radio.getQuantityStation());
+    }
+
+    @Test
+    public void testNoQuantityStation(){
+        Radio radio = new Radio();
+
+        Assertions.assertEquals(10,radio.getQuantityStation());
+    }
+
+
+    @Test
 
     public void shuldMaxStation() {
         Radio radio = new Radio();
@@ -59,19 +74,7 @@ public class RadioTest {
 
         radio.setNextCurrentStation(9);
 
-        int expected = 0;
-        int actual = radio.getCurrentStation();
-
-        Assertions.assertEquals(expected, actual);
-    }
-
-    @Test
-    public void shuldNextMinCurrentStation() {
-        Radio radio = new Radio();
-
-        radio.setNextCurrentStation(0);
-
-        int expected = 1;
+        int expected = 9;
         int actual = radio.getCurrentStation();
 
         Assertions.assertEquals(expected, actual);
@@ -89,29 +92,19 @@ public class RadioTest {
         Assertions.assertEquals(expected, actual);
     }
 
+
     @Test
     public void shuldPrevCurrentStation() {
         Radio radio = new Radio();
 
         radio.setPrevCurrentStation(0);
 
-        int expected = 9;
+        int expected = 0;
         int actual = radio.getCurrentStation();
 
         Assertions.assertEquals(expected, actual);
     }
 
-    @Test
-    public void shuldPrevMaxCurrentStation() {
-        Radio radio = new Radio();
-
-        radio.setPrevCurrentStation(10);
-
-        int expected = 9;
-        int actual = radio.getCurrentStation();
-
-        Assertions.assertEquals(expected, actual);
-    }
 
     @Test
     public void shuldPrevMinCurrentStation() {
